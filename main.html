@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="/eel.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style type="text/css">
+        #text_input{
+            width:75%;
+            height:200px;
+            margin-top:30px;
+        }
+
+        #error_msg{
+            text-color:red;
+        }
+
+        #title{
+            padding-top:20px;
+            padding-bottom:20px;
+            font-weight:bold;
+        }
+
+        #compression_picker{
+            margin-top:10px;
+        }
+
+        * {
+            font-family:Calibri;
+        }
+
+
+
+
+    </style>
+    <title>Romanian Text Summarization</title>
+</head>
+<body>
+<div class="container-full">
+    <div class="row">
+        <div class="col-sm" style="background-color:#002B7F">
+
+        </div>
+        <div class="col-sm-8" style="background-color:#FCD116">
+            <h2 id="title" align="center">
+                Romanian Text Summarization
+            </h2>
+        </div>
+        <div class="col-sm" style="background-color:#CE1126">
+
+        </div>
+    </div>
+</div>
+
+<div align="center">
+    <textarea id="text_input">
+
+    </textarea>
+    </br>
+    <div id="error_msg" class="alert alert-danger" role="alert"
+         style="display:none;">
+        Text Cannot be empty!
+    </div>
+    <div>
+        <form id="compression_picker" action="/action_page.php">
+            Compression (between 0 - 100%):
+            <input id="compression" type="number" name="quantity" min="0" max="100" step="5" value="50"
+                   onkeydown="return false">
+        </form>
+    </div>
+    <br>
+    <button class="btn btn-primary" onclick="create_summary()">
+        <span id="loader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+              style="display:none"></span>
+        Create Summary
+    </button>
+    <br>
+    <hr>
+    <h3 style="padding-top:10px; padding-bottom:10px;">
+        Your Summary
+    </h3>
+    <div class="container-full">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Summary Embeddings</h4>
+                <p id="summary_embeddings">
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h4>Summary Tokens</h4>
+                <p id="summary_tokens">
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<hr>
+<div align="center">
+    <h3>Emotion Scores</h3>
+    <div style="height:40vh; width:80vw;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+<script type="text/javascript" src="index.js">
+
+</script>
+</body>
+</html>
